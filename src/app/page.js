@@ -49,7 +49,7 @@ const Page = () => {
                     className='border-2 border-amber-200 p-0.5'
                     />
 
-                    <button onClick={handleClick} >Add + </button>
+                    <button className='m-1' onClick={handleClick} >Add + </button>
                 </div>
             </div>
             <hr />
