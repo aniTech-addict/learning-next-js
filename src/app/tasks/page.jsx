@@ -1,3 +1,7 @@
+"use client"
+import {useState} from 'react';
+import { useEffect} from "react";
+import axios from "axios";
 
 const Page = () => {
     const [tasks, setTasks] = useState([]);
