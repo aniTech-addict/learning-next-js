@@ -19,7 +19,12 @@ const Page = () => {
             }
         })
         setInput("");
-        setTasks([...tasks, response.data])
+        if(response.data.status ===204){
+            alert('Empty tasks cant be created.')
+        }else {
+            setTasks([...tasks, response.data.task])
+        }
+        console.log(response.status);
     }
 
     async function deleteTask(id){
@@ -68,7 +73,7 @@ const Page = () => {
                 <ul >
                     {tasks.map((task)=>(
 
-                            <li  className="flex gap-2">
+                            <li  className="flex gap-2" key={task.id}>
                                 <p>{task.text}</p>
                                 <button className="hover:scale-105" onClick={()=>deleteTask(task.id)}>Delete</button>
                             </li>

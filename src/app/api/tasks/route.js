@@ -20,9 +20,13 @@ export async function GET(req){
 }
 
 export async function POST(req){
-    const task = await req.json();
-    tasks.push(task);
-    return Response.json(task);
+    const data = await req.json();
+    console.log(data.text);
+    if(data.text===""){
+        return Response.json({status:204, message:"Task Not Found"} );
+    }
+    tasks.push(data);
+    return Response.json({ message:'Task created.', task: data},{status:201});
 }
 
 export async function DELETE(req){
